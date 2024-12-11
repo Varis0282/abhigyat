@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const Sidebar = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(true);
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -42,7 +42,7 @@ const Sidebar = () => {
             <aside
                 id="default-sidebar"
                 className={`fixed top-50 duration-300 transition-all ease-in-out z-40 h-screen ${!isOpen ? '-left-[400px]' : 'left-0'
-                    } sm:translate-x-0`}
+                    } sm:translate-x-0 shadow-lg border-r-2 border-t-2 border-[#f0f0f017]`}
                 aria-label="Sidebar"
             >
                 <div className="h-full px-3 py-4 overflow-y-auto">
@@ -114,19 +114,7 @@ const Sidebar = () => {
 
             {/* Main Content */}
             <div className={`p-4 transition-all duration-300 ease-in-out ${isOpen ? 'sm:ml-64' : 'ml-0'}`}>
-                <div className="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-                    <div className="grid grid-cols-3 gap-4 mb-4">
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">Content</p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">Content</p>
-                        </div>
-                        <div className="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
-                            <p className="text-2xl text-gray-400 dark:text-gray-500">Content</p>
-                        </div>
-                    </div>
-                </div>
+                {children}
             </div>
         </div>
     );
