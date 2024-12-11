@@ -48,6 +48,8 @@ const Popup = ({ handlePopupClose }) => {
                                         id="floating_Link"
                                         className="block rounded-md px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-200 border border-gray-300 appearance-none focus:outline-none focus:ring-0 peer"
                                         placeholder=" "
+                                        value={link}
+                                        onChange={(e) => setLink(e.target.value)}
                                     />
                                     <label
                                         htmlFor="floating_Link"
